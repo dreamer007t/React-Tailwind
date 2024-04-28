@@ -11,7 +11,7 @@ function App() {
   const isUderLoggedIn = false;
   return (<>
     <HeroSection />
-    <div className='h-full w-full absolute top-0 flex justify-center mx-auto'>
+    <div className='h-full w-full absolute top-20 flex justify-center mx-auto'>
       {/* <Canvas>
         <ThreeDsection />
       </Canvas> */}

@@ -116,7 +116,7 @@ table {
   position: absolute;
   height: 100%;
   width: 100%;
-  top: 0;
+  top: 93px;
   background: radial-gradient(circle, rgb(38 93 172 / 28%) 25%, rgba(1, 1, 1, 0.6797093837535014) 25%);
 }
 
