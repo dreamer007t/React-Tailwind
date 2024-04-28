@@ -1,3 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+::root{
+  --primary-color:#265dac;
+}
+
 .App {
   text-align: center;
 }
@@ -34,5 +88,115 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.main-text{
+  color:#ffffff;
+  filter: drop-shadow(2px 4px 6px #195cd3);
+}
+
+.home-banner{
+  height: 100vh;
+  min-height: 700;
+}
+
+.l-section-video{
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.l-section-video video{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.l-section-overlay{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background: radial-gradient(circle, rgb(38 93 172 / 28%) 25%, rgba(1, 1, 1, 0.6797093837535014) 25%);
+}
+
+/* Form */
+.container{
+  mask-clip: 100% !important;
+  height: 100vh;
+  padding: 4rem;
+  margin: 0 auto;
+}
+fieldset{
+  max-width: 500px;
+  padding: 40px;
+  margin: 0 auto;
+  display:flex;
+  flex-direction: column;
+  gap:2rem;
+  align-items: center;
+  background-color: #B4B4B4;
+  border-radius: 20px;
+}
+fieldset label{
+  display: none;
+}
+fieldset button{
+  max-width: 300px;
+}
+input{
+  border-color:var(--primary-color);
+  border-style: solid;
+  border-width: 0 0 2px 0;
+  color: var(--primary-color);
+  background: transparent;;
+}
+input::placeholder{
+  color: var(--primary-color);
+}
+input:focus{
+  border: unset;;
+}
+
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 3rem 3rem;;
+  
+}
+
+.card {
+  display: grid;
+  gap: 1.2rem;
+  flex-basis: 30%;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  min-height: 300px;
+}
+form{
+/* From https://css.glass */
+background: rgba(30, 116, 216, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(30, 116, 216, 0.3);
+}
+
+@media screen and (max-width:900px){
+  .cta{
+    flex-direction: column;
+    gap:2rem;
+  }
+  .in-card h2{
+    margin: 1rem 0 !important;
+    text-align: center;
+  }
+  .in-card p{
+    text-align: center;
   }
 }

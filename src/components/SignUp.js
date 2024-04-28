@@ -1,0 +1,109 @@
+import React, {useEffect,useState} from "react";
+
+
+const PasswordErrorMessage = () => { 
+    return ( 
+      <p className="FieldError">Password should have at least 8 characters</p> 
+    ); 
+   }; 
+
+
+function UserForm(){
+
+    const [firstName, setFirstName] = useState(""); 
+    const [lastName, setLastName] = useState(""); 
+    const [email, setEmail] = useState(""); 
+    const [password, setPassword] = useState({ 
+      value: "", 
+      isTouched: false, 
+    }); 
+    const getIsFormValid = () => { 
+        return ( 
+          firstName && 
+          email && 
+          password.value.length >= 8
+        ); 
+      }; 
+
+      const clearForm = () => { 
+        setFirstName(""); 
+        setLastName(""); 
+        setEmail(""); 
+        setPassword({ 
+          value: "", 
+          isTouched: false, 
+        }); 
+      }; 
+      const handleSubmit = (e) => { 
+        e.preventDefault(); 
+        alert("Account created!"); 
+        clearForm(); 
+      }; 
+    return(
+        <div className="Container FormContainer"> 
+     <form onSubmit={handleSubmit}> 
+       <fieldset> 
+         <h2 className="text-primary">Sign Up</h2> 
+         <div className="Field"> 
+           <label htmlFor="firstName"> 
+             First name <sup>*</sup> 
+           </label> 
+           <input 
+             value={firstName} 
+             onChange={(e) => { 
+               setFirstName(e.target.value); 
+             }} 
+             placeholder="First name" 
+           /> 
+         </div> 
+         <div className="Field"> 
+         <label htmlFor="lastName"> Last name</label> 
+           <input 
+             value={lastName} 
+             onChange={(e) => { 
+               setLastName(e.target.value); 
+             }} 
+             placeholder="Last name" 
+           /> 
+         </div> 
+         <div className="Field"> 
+           <label> 
+             Email address <sup>*</sup> 
+           </label> 
+           <input 
+             value={email} 
+             onChange={(e) => { 
+               setEmail(e.target.value); 
+             }} 
+             placeholder="Email address" 
+           /> 
+         </div> 
+         <div className="Field"> 
+           <label> 
+             Password <sup>*</sup> 
+           </label> 
+           <input 
+             value={password.value} 
+             type="password" 
+             onChange={(e) => { 
+               setPassword({ ...password, value: e.target.value }); 
+             }} 
+             onBlur={() => { 
+               setPassword({ ...password, isTouched: true }); 
+             }} 
+             placeholder="Password" 
+           /> 
+           {password.isTouched && password.value.length < 8 ? ( 
+             <PasswordErrorMessage /> 
+           ) : null} 
+         </div> 
+         <button type="submit" disabled={!getIsFormValid()}> 
+           Create account 
+         </button> 
+       </fieldset> 
+     </form> 
+   </div> 
+    )
+}
+
+export default  UserForm
